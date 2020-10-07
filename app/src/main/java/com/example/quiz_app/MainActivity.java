@@ -3,6 +3,7 @@ package com.example.quiz_app;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         // Declare view variables and assign them the views from the layout file
         final TextView answerLabel = findViewById(R.id.TextView1);
         Button getAnswerButton = findViewById(R.id.Button1);
+        final Switch onOffSwitch = findViewById(R.id.Switch1);
+
+
         getAnswerButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -32,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        onOffSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Clicked Switch On: " + onOffSwitch.getTextOn());
+                System.out.println("Clicked Switch Off: " + onOffSwitch.getTextOff());
+                System.out.println("Current Text: " + onOffSwitch.getText());
+                System.out.println("Current State: " + onOffSwitch.isChecked());
+
+            }
+        });
 
     }
 
