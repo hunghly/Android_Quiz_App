@@ -1,5 +1,6 @@
 package com.example.quiz_app;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         final TextView answerLabel = findViewById(R.id.TextView1);
         Button getAnswerButton = findViewById(R.id.Button1);
         final Switch onOffSwitch = findViewById(R.id.Switch1);
+        final ConstraintLayout layout = findViewById(R.id.main_layout);
+
 
 
         getAnswerButton.setOnClickListener(
@@ -44,7 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Clicked Switch Off: " + onOffSwitch.getTextOff());
                 System.out.println("Current Text: " + onOffSwitch.getText());
                 System.out.println("Current State: " + onOffSwitch.isChecked());
-
+                if (onOffSwitch.isChecked()) {
+                    layout.setBackgroundColor(Color.parseColor("#333333"));
+                } else {
+                    layout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                }
             }
         });
 
